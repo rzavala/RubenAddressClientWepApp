@@ -1,0 +1,8 @@
+/Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/bin/Debug/netcoreapp1.1/RubenAddressClientWepApp.deps.json
+/Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/bin/Debug/netcoreapp1.1/RubenAddressClientWepApp.runtimeconfig.json
+/Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/bin/Debug/netcoreapp1.1/RubenAddressClientWepApp.runtimeconfig.dev.json
+/Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/bin/Debug/netcoreapp1.1/RubenAddressClientWepApp.dll
+/Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/bin/Debug/netcoreapp1.1/RubenAddressClientWepApp.pdb
+/Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/obj/Debug/netcoreapp1.1/RubenAddressClientWepApp.AssemblyInfo.cs
+/Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/obj/Debug/netcoreapp1.1/RubenAddressClientWepApp.dll
+/Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/obj/Debug/netcoreapp1.1/RubenAddressClientWepApp.pdb
