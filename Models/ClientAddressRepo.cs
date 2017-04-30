@@ -13,31 +13,15 @@ namespace RubenAddressClientWepApp.Models
         public ClientAddressRepo(ClientAddressContext context)
         {
             _context = context;
+
+            if (_context.ClientAddressItem.Count() == 0)
+                Add(new ClientAddressItem { Street = "Alamo 313", City = "Escobedo", State = "Nuevo Leon", Zip = "66058", Intersection1 = "Pino y Cedro", Active = true, DateStamp = DateTime.UtcNow });
         }
 
         public IEnumerable<ClientAddressItem> GetAll()
         {
-            List<ClientAddressItem> allItems = new List<ClientAddressItem>();
 
-            var itemsResult = _context.RubenClientAddressSEL(iD: null).ToList(); ;
-
-            foreach (var item in itemsResult)
-            {
-                ClientAddressItem clientAddress = new ClientAddressItem()
-                {
-                    ID = item.ID,
-                    Street = item.Street,
-                    City = item.City,
-                    State = item.State,
-                    Zip = item.Zip,
-                    Intersection1 = item.Intersection1,
-                    Active = item.Active,
-                    DateStamp = item.DateStamp
-
-                };
-
-                allItems.Add(clientAddress);
-            }
+            var allItems = _context.ClientAddressItem.ToList(); ;
 
             return allItems;
         }
@@ -46,7 +30,8 @@ namespace RubenAddressClientWepApp.Models
         {
             try
             {
-                result = _context.RubenClientAddressSI(item.Street, item.City, item.State, item.Zip, item.Intersection1);
+                _context.ClientAddressItem.Add(item);
+                result = _context.SaveChanges();
 
                 if (result <= 0)
                 {
@@ -69,27 +54,29 @@ namespace RubenAddressClientWepApp.Models
 
             try
             {
-                result = _context.RubenClientAddressSD(id);
+                var entity = _context.ClientAddressItem.First(t => t.ID == id);
+                _context.ClientAddressItem.Remove(entity);
+
+                result = _context.SaveChanges();
 
                 if (result != 1 && result > 0)
                 {
                     logMessage.Success = false;
-                    logMessage.LogMessage = "Oops.. more than one row were affected";
+                    logMessage.LogMessage = "Oops.. more than one row were affected"; //esto en teoria nunca pasaria..
                 }
                 else if (result < 0)
                 {
                     logMessage.Success = false;
-                    logMessage.LogMessage = "Can't remove the selected address due to errors on the darkside";
+                    logMessage.LogMessage = "Can't remove the selected address due to errors on the darkside"; //errores de lado de servidor de bd
                 }
 
             }
-            catch (Exception ex) // TODO  create log de errores en db
+            catch (Exception ex)
             {
-
+                //error. TODO  create log de errores en db
                 logMessage.Success = false;
                 logMessage.LogMessage = "Something quite bad happend, ask Ruben for help.";
             }
-
 
             return logMessage;
         }
@@ -98,7 +85,8 @@ namespace RubenAddressClientWepApp.Models
         {
             try
             {
-                result = _context.RubenClientAddressSU(item.ID, item.Street, item.City, item.State, item.Zip, item.Intersection1);
+                _context.ClientAddressItem.Update(item);
+                result = _context.SaveChanges();
 
                 if (result != 1 && result > 0)
                 {
@@ -123,29 +111,7 @@ namespace RubenAddressClientWepApp.Models
 
         public ClientAddressItem Find(int id)
         {
-            ClientAddressItem item = new ClientAddressItem();
-
-            try
-            {
-                var itemResult = _context.RubenClientAddressSEL(iD: id).ToList().SingleOrDefault();
-
-                item.Active = itemResult.Active;
-                item.City = itemResult.City;
-                item.DateStamp = itemResult.DateStamp;
-                item.ID = itemResult.ID;
-                item.Intersection1 = itemResult.Intersection1;
-                item.State = itemResult.State;
-                item.Street = itemResult.Street;
-                item.Zip = itemResult.Zip;
-            }
-            catch (Exception ex) // TODO log exception
-            {
-                return new ClientAddressItem();
-                throw;
-            }
-
-
-            return item;
+            return _context.ClientAddressItem.FirstOrDefault(t => t.ID == id);
         }
     }
 }

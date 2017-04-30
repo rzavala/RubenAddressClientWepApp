@@ -13,7 +13,7 @@ namespace RubenAddressClientWepApp.Models
         {
         }
 
-        public DbSet<ClientAddressItem> TodoItems { get; set; }
+        public DbSet<ClientAddressItem> ClientAddressItem { get; set; }
 
     }
 }
