@@ -41,6 +41,9 @@ namespace RubenAddressClientWepApp.Controllers
                 return BadRequest();
             }
 
+            //en add se define como active true y el dateStamp como datetime.now
+            item.Active = true;
+            item.DateStamp = DateTime.UtcNow;            
             logMessage = _clientAddressRepository.Add(item);
 
             if (!logMessage.Success)

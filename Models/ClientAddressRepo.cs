@@ -20,8 +20,8 @@ namespace RubenAddressClientWepApp.Models
 
         public IEnumerable<ClientAddressItem> GetAll()
         {
-
-            var allItems = _context.ClientAddressItem.ToList(); ;
+            //solo activos
+            var allItems = _context.ClientAddressItem.Where( a => a.Active == true).ToList();
 
             return allItems;
         }
