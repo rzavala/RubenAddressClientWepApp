@@ -1,0 +1,74 @@
+@{
+    ViewData["Title"] = "Adress from Clients";
+}
+
+@section Scripts {
+    <script src="https://use.fontawesome.com/d5ebb55257.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/js/reusableControls.js"></script>
+    <script src="/js/app-address.js"></script>
+    <script src="/js/addressController.js"></script>
+}
+
+<div class="row" ng-app="app-address">
+    <div class="col-md-6 col-md-offset-3" ng-controller="addressController as vm">
+        <table class="table table-responsive table-striped">
+            <!--<th>
+                <td>Street</td>
+                <td>Intersection</td>
+                <td>City</td>
+                <td>State</td>
+                <td>Zip</td>
+                <td>Created</td>
+                <td>Options</td>
+            </th>-->
+            <tr ng-repeat="address in vm.ClientAdresses">
+                <td>{{address.street}}</td>
+                <td>{{address.intersection1}}</td>
+                <td>{{address.city}}</td>
+                <td>{{address.state}}</td>
+                <td>{{address.zip}}</td>
+                <td>{{address.dateStamp | date:'dd/MM/yyyy'}}</td>
+                <td><a href="#" class="btn btn-sm btn-primary">Manage</a></td>
+            </tr>   
+        </table>
+        
+        <div class="text-danger" ng-show="vm.errorMessage">{{vm.errorMessage}}</div>
+        <wait-cursor display-when="vm.isBusy"></wait-cursor>
+        <form novalidate name="newAddressClientForm" ng-submit="vm.addAddressClient()">
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input class="form-control" type="text" id="street" name="street" ng-model="vm.newAddress.street" required ng-minlength="2"/>
+                <span ng-show="newAddressClientForm.street.$error.required" class="text-warning">Street is required.</span>
+                <span ng-show="newAddressClientForm.street.$error.minlength" class="text-warning">Must be at least 2 characters.</span>
+            </div>
+            <div class="form-group">
+                <label for="intersection1">Instersection</label>
+                <input class="form-control" type="text" id="intersection1" name="intersection1" ng-model="vm.newAddress.intersection1"/>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input class="form-control" type="text" id="city" name="city" ng-model="vm.newAddress.city" required ng-minlength="2"/>
+                <span ng-show="newAddressClientForm.city.$error.required" class="text-warning">City is required.</span>
+                <span ng-show="newAddressClientForm.city.$error.minlength" class="text-warning">Must be at least 2 characters.</span>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input class="form-control" type="text" id="state" name="state" ng-model="vm.newAddress.state" required ng-minlength="2"/>
+                <span ng-show="newAddressClientForm.state.$error.required" class="text-warning">State is required.</span>
+                <span ng-show="newAddressClientForm.state.$error.minlength" class="text-warning">Must be at least 2 characters.</span>
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip</label>
+                <input class="form-control" type="number" id="zip" name="zip" ng-model="vm.newAddress.zip" required ng-minlength="4"/>
+                <span ng-show="newAddressClientForm.zip.$error.required" class="text-warning">Zip is required.</span>
+                <span ng-show="newAddressClientForm.zip.$error.minlength" class="text-warning">Must be at least 4 digits.</span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" 
+                class="btn btn-sm btn-success"
+                ng-disabled="newAddressClientForm.$invalid"/>
+            </div>
+        </form>
+    </div>
+</div>
