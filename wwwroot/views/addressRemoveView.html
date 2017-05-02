@@ -1,0 +1,47 @@
+<br/>
+
+<a href="#/" class="btn btn-sm btn-default"><i class="fa fa-angle-left fa-lg" aria-hidden="true"></i> Back</a>
+<div class="text-danger" ng-show="vm.errorMessage">{{vm.errorMessage}}</div>
+<wait-cursor display-when="vm.isBusy"></wait-cursor>
+
+<h3>Remove Id: {{vm.removeAddress.id}}</h1>
+
+<p>Are you sure to delete this address?</p>
+
+<form novalidate name="removeClientAddressForm" ng-submit="vm.removeAddressClient()">
+    <div class="form-group">
+        <label for="street">Street</label>
+        <input class="form-control" type="text" id="street" name="street" ng-model="vm.removeAddress.street" required ng-minlength="2" disabled readonly/>
+        <span ng-show="removeClientAddressForm.street.$error.required" class="text-warning">Street is required.</span>
+        <span ng-show="removeClientAddressForm.street.$error.minlength" class="text-warning">Must be at least 2 characters.</span>
+    </div>
+    <div class="form-group">
+        <label for="intersection1">Instersection</label>
+        <input class="form-control" type="text" id="intersection1" name="intersection1" ng-model="vm.removeAddress.intersection1" disabled readonly/>
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input class="form-control" type="text" id="city" name="city" ng-model="vm.removeAddress.city" required ng-minlength="2" disabled readonly/>
+        <span ng-show="removeClientAddressForm.city.$error.required" class="text-warning">City is required.</span>
+        <span ng-show="removeClientAddressForm.city.$error.minlength" class="text-warning">Must be at least 2 characters.</span>
+    </div>
+    <div class="form-group">
+        <label for="state">State</label>
+        <input class="form-control" type="text" id="state" name="state" ng-model="vm.removeAddress.state" required ng-minlength="2" disabled readonly/>
+        <span ng-show="removeClientAddressForm.state.$error.required" class="text-warning">State is required.</span>
+        <span ng-show="removeClientAddressForm.state.$error.minlength" class="text-warning">Must be at least 2 characters.</span>
+    </div>
+    <div class="form-group">
+        <label for="zip">Zip</label>
+        <input class="form-control" type="text" id="zip" name="zip" ng-model="vm.removeAddress.zip" required ng-minlength="4" disabled readonly/>
+        <span ng-show="removeClientAddressForm.zip.$error.required" class="text-warning">Zip is required.</span>
+        <span ng-show="removeClientAddressForm.zip.$error.minlength" class="text-warning">Must be at least 4 digits.</span>
+    </div>
+    <div class="form-group">
+        <button type="submit"
+        class="btn btn-sm btn-danger"
+        ng-disabled="removeClientAddressForm.$invalid">
+        <i class="fa fa-trash"></i> Remove
+        </button> 
+    </div>
+</form>

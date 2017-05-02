@@ -1,0 +1,46 @@
+<br/>
+
+<a href="#/" class="btn btn-sm btn-default"><i class="fa fa-angle-left fa-lg" aria-hidden="true"></i> Back</a>
+<div class="text-danger" ng-show="vm.errorMessage">{{vm.errorMessage}}</div>
+<wait-cursor display-when="vm.isBusy"></wait-cursor>
+
+<h3>Edit Id: {{vm.editAddress.id}}</h1>
+
+
+<form novalidate name="editClientAddressForm" ng-submit="vm.editAddressClient()">
+    <div class="form-group">
+        <label for="street">Street</label>
+        <input class="form-control" type="text" id="street" name="street" ng-model="vm.editAddress.street" required ng-minlength="2"/>
+        <span ng-show="editClientAddressForm.street.$error.required" class="text-warning">Street is required.</span>
+        <span ng-show="editClientAddressForm.street.$error.minlength" class="text-warning">Must be at least 2 characters.</span>
+    </div>
+    <div class="form-group">
+        <label for="intersection1">Instersection</label>
+        <input class="form-control" type="text" id="intersection1" name="intersection1" ng-model="vm.editAddress.intersection1"/>
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input class="form-control" type="text" id="city" name="city" ng-model="vm.editAddress.city" required ng-minlength="2"/>
+        <span ng-show="editClientAddressForm.city.$error.required" class="text-warning">City is required.</span>
+        <span ng-show="editClientAddressForm.city.$error.minlength" class="text-warning">Must be at least 2 characters.</span>
+    </div>
+    <div class="form-group">
+        <label for="state">State</label>
+        <input class="form-control" type="text" id="state" name="state" ng-model="vm.editAddress.state" required ng-minlength="2"/>
+        <span ng-show="editClientAddressForm.state.$error.required" class="text-warning">State is required.</span>
+        <span ng-show="editClientAddressForm.state.$error.minlength" class="text-warning">Must be at least 2 characters.</span>
+    </div>
+    <div class="form-group">
+        <label for="zip">Zip</label>
+        <input class="form-control" type="text" id="zip" name="zip" ng-model="vm.editAddress.zip" required ng-minlength="4"/>
+        <span ng-show="editClientAddressForm.zip.$error.required" class="text-warning">Zip is required.</span>
+        <span ng-show="editClientAddressForm.zip.$error.minlength" class="text-warning">Must be at least 4 digits.</span>
+    </div>
+    <div class="form-group">
+        <button type="submit"
+        class="btn btn-sm btn-success"
+        ng-disabled="editClientAddressForm.$invalid">
+        <i class="fa fa-check"></i> Update
+        </button> 
+    </div>
+</form>
