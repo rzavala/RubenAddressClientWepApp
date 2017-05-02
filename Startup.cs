@@ -63,7 +63,7 @@ namespace RubenAddressClientWepApp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Address}/{action=Index}/{id?}");
             });
         }
     }
