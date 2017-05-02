@@ -17,7 +17,7 @@
                 <td>{{address.zip}}</td>
                 <td>{{address.dateStamp | date:'dd/MM/yyyy'}}</td>
                 <td><a ng-href="#editor/{{address.id}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></td>
-                <td><a ng-href="#remover/{{address.id}}" class="btn btn-sm btn-danger"><i class="fa fa-trash-o <fa-lg></fa-lg>" aria-hidden="true"></i></a></td>
+                <td><a ng-href="#remove/{{address.id}}" class="btn btn-sm btn-danger"><i class="fa fa-trash-o <fa-lg></fa-lg>" aria-hidden="true"></i></a></td>
             </tr>   
         </table>
         
@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label for="zip">Zip</label>
-                <input class="form-control" type="number" id="zip" name="zip" ng-model="vm.newAddress.zip" required ng-minlength="4"/>
+                <input class="form-control" type="text" id="zip" name="zip" ng-model="vm.newAddress.zip" required ng-minlength="4"/>
                 <span ng-show="newAddressClientForm.zip.$error.required" class="text-warning">Zip is required.</span>
                 <span ng-show="newAddressClientForm.zip.$error.minlength" class="text-warning">Must be at least 4 digits.</span>
             </div>

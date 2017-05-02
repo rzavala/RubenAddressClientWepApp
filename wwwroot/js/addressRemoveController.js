@@ -1,25 +1,25 @@
-//addressEditorController.js
+//addressRemoveController.js
 (function () {
     "use strict";
 
     angular.module("app-address")
-        .controller("addressEditorController", addressEditorController);
+        .controller("addressRemoveController", addressRemoveController);
 
-    function addressEditorController($routeParams, $http, $location) {
+    function addressRemoveController($routeParams, $http, $location) {
         var vm = this;
 
         vm.id = $routeParams.id;
 
-        vm.editAddress = {};
+        vm.removeAddress = {};
 
         vm.errorMessage = "";
 
         vm.isBusy = true;
 
-        $http.get("/api/clientaddress/" + $routeParams.id) //obtener el registro a editar
+        $http.get("/api/clientaddress/" + $routeParams.id) //obtener el registro a borrar
             .then(function (response) {
                 //results when it works
-                angular.copy(response.data, vm.editAddress);
+                angular.copy(response.data, vm.removeAddress);
 
             }, function (error) {
                 //results when it fails
@@ -29,16 +29,16 @@
                 vm.isBusy = false;
             });
 
-        vm.editAddressClient = function () {
+        vm.removeAddressClient = function () {
             vm.isBusy = true;
             vm.errorMessage = "";
 
 
-            $http.put("/api/clientaddress/" + vm.editAddress.id, vm.editAddress)
+            $http.delete("/api/clientaddress/" + vm.removeAddress.id, vm.removeAddress)
                 .then(function (response) {
                     //results when it works
                     //go back
-                    vm.editAddress = {}; //objeto vacio, limpia el form
+                    vm.removeAddress = {}; //objeto vacio, limpia el form
                     $location.path("/");
 
 
