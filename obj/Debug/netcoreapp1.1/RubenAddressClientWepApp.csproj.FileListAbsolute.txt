@@ -6,3 +6,11 @@
 /Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/obj/Debug/netcoreapp1.1/RubenAddressClientWepApp.AssemblyInfo.cs
 /Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/obj/Debug/netcoreapp1.1/RubenAddressClientWepApp.dll
 /Users/rubengpe.zavala/Documents/vscode/RubenAddressClientWepApp/obj/Debug/netcoreapp1.1/RubenAddressClientWepApp.pdb
+c:\Users\zavalacastanon.5\Documents\GitHub\RubenAddressClientWepApp\bin\Debug\netcoreapp1.1\RubenAddressClientWepApp.deps.json
+c:\Users\zavalacastanon.5\Documents\GitHub\RubenAddressClientWepApp\bin\Debug\netcoreapp1.1\RubenAddressClientWepApp.runtimeconfig.json
+c:\Users\zavalacastanon.5\Documents\GitHub\RubenAddressClientWepApp\bin\Debug\netcoreapp1.1\RubenAddressClientWepApp.runtimeconfig.dev.json
+c:\Users\zavalacastanon.5\Documents\GitHub\RubenAddressClientWepApp\bin\Debug\netcoreapp1.1\RubenAddressClientWepApp.dll
+c:\Users\zavalacastanon.5\Documents\GitHub\RubenAddressClientWepApp\bin\Debug\netcoreapp1.1\RubenAddressClientWepApp.pdb
+c:\Users\zavalacastanon.5\Documents\GitHub\RubenAddressClientWepApp\obj\Debug\netcoreapp1.1\RubenAddressClientWepApp.AssemblyInfo.cs
+c:\Users\zavalacastanon.5\Documents\GitHub\RubenAddressClientWepApp\obj\Debug\netcoreapp1.1\RubenAddressClientWepApp.dll
+c:\Users\zavalacastanon.5\Documents\GitHub\RubenAddressClientWepApp\obj\Debug\netcoreapp1.1\RubenAddressClientWepApp.pdb
