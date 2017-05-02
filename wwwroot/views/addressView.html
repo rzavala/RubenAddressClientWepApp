@@ -1,24 +1,27 @@
 <div class="col-md-6 col-md-offset-3">
         <table class="table table-responsive table-striped">
-            <!--<th>
-                <td>Street</td>
-                <td>Intersection</td>
-                <td>City</td>
-                <td>State</td>
-                <td>Zip</td>
-                <td>Created</td>
-                <td>Options</td>
-            </th>-->
-            <tr ng-repeat="address in vm.ClientAdresses">
-                <td>{{address.street}}</td>
-                <td>{{address.intersection1}}</td>
-                <td>{{address.city}}</td>
-                <td>{{address.state}}</td>
-                <td>{{address.zip}}</td>
-                <td>{{address.dateStamp | date:'dd/MM/yyyy'}}</td>
-                <td><a ng-href="#editor/{{address.id}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></td>
-                <td><a ng-href="#remove/{{address.id}}" class="btn btn-sm btn-danger"><i class="fa fa-trash-o <fa-lg></fa-lg>" aria-hidden="true"></i></a></td>
-            </tr>   
+            <thead>
+                <tr><td>Street</td>
+                    <td>Intersection</td>
+                    <td>City</td>
+                    <td>State</td>
+                    <td>Zip</td>
+                    <td>Created</td>
+                    <td>Options</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="address in vm.ClientAdresses">
+                    <td>{{address.street}}</td>
+                    <td>{{address.intersection1}}</td>
+                    <td>{{address.city}}</td>
+                    <td>{{address.state}}</td>
+                    <td>{{address.zip}}</td>
+                    <td>{{address.dateStamp | date:'dd/MM/yyyy'}}</td>
+                    <td><a ng-href="#editor/{{address.id}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></td>
+                    <td><a ng-href="#remove/{{address.id}}" class="btn btn-sm btn-danger"><i class="fa fa-trash-o <fa-lg></fa-lg>" aria-hidden="true"></i></a></td>
+                </tr>   
+            </tbody>
         </table>
         
         <div class="text-danger" ng-show="vm.errorMessage">{{vm.errorMessage}}</div>
